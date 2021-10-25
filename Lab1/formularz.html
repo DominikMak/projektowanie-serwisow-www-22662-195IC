@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Lab1" />
+        <meta name="author" content="Dominik Makuch" />
+        <title>Dominik Makuch</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/amw_logo.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="list.html">List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="strona.html">Strona z podręcznika</a></li>
+                        <li class="nav-item"><a class="nav-link" href="formularz.html">Formularz</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container formularz">
+            <h1>Ocena z zadania domowego</h1>
+            <form id= "formularz" onsubmit="pokazWynik();return false">
+
+                <label for="imie">Imie:</label></br>
+                <input type="text" id="imie" name="imie"></br>
+
+                <label for="nazwisko">Nazwisko:</label></br>
+                <input type="text" id="nazwisko" name="nazwisko"></br>
+
+                <label for="dataUr">Data urodzenia:</label></br>
+                <input type="date" id="dataUr" name="dataUr"></br>
+
+                <label for="wynik">Wynik (0/20 pkt):</label></br>
+                <input type="number" id="wynik" name="wynik" min="0" max="20"></br>
+
+                <p>Jak oceniasz test?</p>
+                <input type="radio" id="ocenaTestu1" name="ocenaTestu">
+                <label for="ocenaTestu1">&#128534;</label></br>
+                <input type="radio" id="ocenaTestu2" name="ocenaTestu">
+                <label for="ocenaTestu2">&#128528;</label></br>
+                <input type="radio" id="ocenaTestu3" name="ocenaTestu">
+                <label for="ocenaTestu3">&#128525;</label></br></br>
+                
+                <input type="submit" value="Prześlij">
+            </form>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

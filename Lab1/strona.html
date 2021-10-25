@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Lab1" />
+        <meta name="author" content="Dominik Makuch" />
+        <title>Dominik Makuch</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/amw_logo.png" />
+        <link href="css/mojeStyle.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="list.html">List</a></li>
+                        <li class="nav-item"><a class="nav-link" href="strona.html">Strona z podręcznika</a></li>
+                        <li class="nav-item"><a class="nav-link" href="formularz.html">Formularz</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container stronaPodrecznik">
+            <div class="numerZadania">III.6</div><h1 id="temat">Działania na potęgach</h1>
+            </br></br>
+            <div class="numerZadania">1</div><p id="tresc">Uzupełnij</p>
+            </br></br>
+            <ol type="a">
+                <li>&radic;(3<sup>2</sup>)=&radic;<span id="szukana">?</span>=3 <button class = "odp" id = "odp1.1" onclick = "pokazOdpowiedz('odp1.1','9')">ODPOWIEDŹ</button></li>
+                <li>&radic;[(-3)<sup>2</sup>]=&radic;(9)=<span id="szukana">?</span> <button class = "odp" id = "odp1.2" onclick = "pokazOdpowiedz('odp1.2','3')">ODPOWIEDŹ</button></li>
+                <li>&radic;(7<sup>2</sup>)=&radic;<span id="szukana">?</span>=<span id="szukana">?</span> <button class = "odp" id = "odp1.3" onclick = "pokazOdpowiedz('odp1.3','7')">ODPOWIEDŹ</button></li>
+                <li>&radic;(12<sup>2</sup>)=&radic;<span id="szukana">?</span>=<span id="szukana">?</span> <button class = "odp" id = "odp1.4" onclick = "pokazOdpowiedz('odp1.4','12')">ODPOWIEDŹ</button></li>
+            </ol>
+            <div class="numerZadania">2</div><p id="tresc">Usuń niewymierność z mianownika</p>
+            </br></br>
+            <ol type="a">
+                <li><sup>1</sup>&frasl;<sub>&radic;5</sub>=<sup>1</sup>&frasl;<sub>&radic;5</sub> * <sup>&radic;5</sup>&frasl;<sub>&radic;5</sub> = <sup id = "szukana">?</sup>&frasl;<sub id = "szukana">?</sub> <button class = "odp" id = "odp2.1" onclick = "pokazOdpowiedz('odp2.1','√(5)/5')">ODPOWIEDŹ</button></li>
+                <li><sup>4</sup>&frasl;<sub>&radic;11</sub>=<sup>4</sup>&frasl;<sub>&radic;11</sub> * <sup id = "szukana">?</sup>&frasl;<sub>&radic;11</sub> = <sup>4</sup>&frasl;<sub id = "szukana">?</sub> * <span id = "szukana">?</span> <button class = "odp" id = "odp2.2" onclick = "pokazOdpowiedz('odp2.2','4⁄√11 * √11⁄√11 = 4⁄11 * √11')">ODPOWIEDŹ</button></li>
+                <li><sup>6</sup>&frasl;<sub>&radic;3</sub>=<span id="szukana">?</span> <button class = "odp" id = "odp2.3" onclick = "pokazOdpowiedz('odp2.3','(6 * √3) / 3')">ODPOWIEDŹ</button></li>
+            </ol>
+            <div class="numerZadania">3</div><p id="tresc">Usuń niewymierność z mianownika. Wpisz w okienka litery odpowiadające wynikom i odczytaj hasło.</p>
+            <ol type="a">
+                <li><sup>3</sup>&frasl;<sub>&radic;15</sub> =   <div class="kwadrat" id = "kw1"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw1','S')">ODPOWIEDŹ</button></li>
+                <li><sup>15</sup>&frasl;<sub>&radic;3</sub> =   <div class="kwadrat" id = "kw2"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw2','Z')">ODPOWIEDŹ</button></li>
+                <li><sup>1</sup>&frasl;<sub>&radic;15</sub> =   <div class="kwadrat" id = "kw3"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw3','A')">ODPOWIEDŹ</button></li>
+                <li><sup>15</sup>&frasl;<sub>&radic;15</sub> =  <div class="kwadrat" id = "kw4"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw4','L')">ODPOWIEDŹ</button></li>
+                <li><sup>5</sup>&frasl;<sub>&radic;15</sub> =   <div class="kwadrat" id = "kw5"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw5','I')">ODPOWIEDŹ</button></li>
+                <li><sup>15</sup>&frasl;<sub>&radic;5</sub> =   <div class="kwadrat" id = "kw6"></div> <button class = "odp" onclick = "pokazOdpowiedzLitera('kw6','K')">ODPOWIEDŹ</button></li>
+            </ol>
+            <table>
+                <tr>
+                    <td><sup>&radic;15</sup>&frasl;<sub>3</sub></td>
+                    <td><sup>&radic;15</sup>&frasl;<sub>15</sub></td>
+                    <td>&radic;15</td>
+                    <td>3 * &radic;5</td>
+                    <td><sup>&radic;15</sup>&frasl;<sub>5</sub></td>
+                    <td>5 * &radic;3</td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>A</td>
+                    <td>L</td>
+                    <td>I</td>
+                    <td>S</td>
+                    <td>Z</td>
+                </tr>
+            </table>
+            <p style="float: right; font-size: 20px">strona 86</p>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
