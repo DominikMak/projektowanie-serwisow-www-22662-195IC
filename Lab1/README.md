@@ -4,7 +4,7 @@
     <ul>
         <li>Przy tworzeniu strony korzystałem z szablonu "Bare". W którym podmieniłem tytuł na moje imie i nazwisko, dodałem hiperłącza,do kolejnych podstron, przypisane do przycisków w menu strony.</li>
 
-        ![index1](assets/ZrzutyEkranu/index-1.png)
+        ![index1](assets/index-1.png)
         <li></li>
     </ul>
 </ol>
