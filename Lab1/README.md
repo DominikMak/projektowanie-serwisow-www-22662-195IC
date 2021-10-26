@@ -20,3 +20,13 @@
 ![formularz](assets/formularz.PNG)
 * Po uzupełnieniu formularza i zatwierdzeniu za pomocą przycisku submit, podane powyżej informacje zostają wypisane za formularzem wraz z wyliczonym procentowym wynikiem z "testu".
 ![funkcja-formularz](assets/funkcja-formularz.PNG)
+## Zrzuty ekranu zrealizowanych stron
+* index.html
+![index](assets/indexhtml.PNG)
+* list.html
+![list](assets/listhtml.PNG)
+* strona.html
+![strona1html](assets/stronahtml1.PNG)
+![strona2html](assets/stronahtml2.PNG)
+* formularz.html
+![formularz](assets/formularzhtml.PNG)
