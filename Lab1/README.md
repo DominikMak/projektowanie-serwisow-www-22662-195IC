@@ -22,7 +22,7 @@
 ![funkcja-formularz](assets/funkcja-formularz.PNG)
 ## Zrzuty ekranu zrealizowanych stron
 * index.html
-![index](assets/indexhtml.PNG)
+![index](assets/index-html.PNG)
 * list.html
 ![list](assets/listhtml.PNG)
 * strona.html
