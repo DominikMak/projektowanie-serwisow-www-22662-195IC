@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <link rel="icon" href="assets/images/kot.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Praca z elementami DOM z wykorzystaniem JavaScript">
+    <meta name="author" content="Dominik Makuch">
+    <title>Dominik Makuch 22662</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for my website -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="text-center" onload="zliczElementy()">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <header class="masthead mb-auto">
+        <div class="inner text-center">
+          <h3 class>Praca z elementami DOM z wykorzystaniem Javascript</h3>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <div class="examples">
+          <ol id="listaPrzykladow">
+            <hr>
+            <li>
+              <p class="lead">Captcha</p>
+              <div id="captcha">
+               <button type="button" class="btn btn-dark" id="runCaptcha" onclick="captcha()">Sprawdź!</button>
+              </div>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień wartość przycisków.</p>
+              <form>
+                <input type="text" id="nowaWartosc" placeholder="Wprowadź nową wartość przycisków" size="40">
+                <button type="button" class="btn btn-dark" onclick="zmienWartosc()">Sprawdź!</button>
+              </form>
+            </li>
+            <hr>
+            <li><p class="lead">Zmień kolor tła za pomocą przycisków na klawiaturze.</br>(r - czerwony, g - zielony, b - niebieski)</p>
+                <input type="text" size="1" id="zmianaTla" onkeypress="zmienKolor(event)"> 
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Sprawdź kod HTML</p>
+              <h3 onmouseover="pokazKod()" onmouseout="schowajKod()" id="zrodloKodu"><span style="text-decoration: wavy underline lime">Najedź</span> na <span style="color:red">mnie</span> <u>kursorem!</u></h3>
+              <p id="pom"></p>
+            </li>
+            <hr>
+            <li id="createTextAfter"> <button type="button" class="btn btn-dark" onclick="utworzTekst()" id="btnAfterText">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień tytuł strony</p>
+              <form>
+                <input type="text" placeholder="Podaj nowy tytuł" id="nowyTytul"><button type="button" class="btn btn-dark" onclick="zmienTytul()">Sprawdź!</button>
+              </form>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zlicz ilość elementów</p>
+              <input type="text" placeholder="Dodaj paragraf" id="nowyElement"><button type="button" class="btn btn-dark" onclick="nowyElement()">Sprawdź!</button>
+              <div class="examples" id="elementsContainer">
+              </div>
+              <p id="zliczanie"></p>
+            </li>
+            <hr>
+            <li id="li8">
+              <p class="lead">Dodaj klasę dla poniższego DIV</p>
+              <div  id="bezStylu">
+                <p>Dodaj mi stylu</p>
+                <button type="button" class="btn btn-dark" onclick="dodajKlase()">Sprawdź!</button>
+              </div>
+            </li>
+            <hr>
+            <li id="li9">
+              <p class="lead">Zamień punkty miejscami</p>
+              <button type="button" class="btn btn-dark" onclick="zamienMiejscami()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Pozbaw DIV z punktu nr 8 klasy.</p>
+              <button type="button" class="btn btn-dark" onclick="pozbawStylu()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Usuń dowolny element z tej strony</p>
+              <input type="number" id="liNumber" placeholder="Podaj numer elementu"><button type="button" class="btn btn-dark" onclick="usunPunkt()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zaznacz punkt zawierający paragraf o id="pom"</p>
+              <button type="button" class="btn btn-dark" onclick="zaznaczPunkty()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Wciśnij przycisk i edytuj dowolny punkt</p>
+              <button type="button" class="btn btn-dark" onclick="edytujPunkty()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień pierwszy element poniższej listy na własny</p>
+              <ul id="listaZwierz"><li>Kaczka</li><li>Kura</li><li>Krowa</li></ul>
+              <input type="text" placeholder="Podaj własny element" id="nowyEl">
+              <button type="button" class="btn btn-dark" onclick="zmienElement()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień kursor:</p>
+              <button type="button" class="btn btn-dark" onclick="zmienKursor()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień favicon:</p>
+              <button type="button" class="btn btn-dark" onclick="zmienIkone()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Kliknij na psa:</p>
+              <img id="pies" onclick="changeImage()" src="assets/images/sad_dog.png">
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień rozmiar psa z poprzedniego punktu:</p>
+              <input type="range" min="1" max="100" id="rozmiarPsa">
+              <button type="button" class="btn btn-dark" onclick="zmienRozmiarPsa()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <p class="lead">Zmień kolor tekstu na stronie:</p>
+              <input type="color" id="colorPicker" value="#ff0000">
+              <button type="button" class="btn btn-dark" onclick="zmienKolorTekstu()">Sprawdź!</button>
+            </li>
+            <hr>
+            <li>
+              <button type="button" class="btn btn-dark" onclick="koniec()">Koniec</button>
+            </li>
+            <hr>
+          </ol>
+        </div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Wykonał <span class = "madeby">Dominik Makuch.</span></p>
+        </div>
+      </footer>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
