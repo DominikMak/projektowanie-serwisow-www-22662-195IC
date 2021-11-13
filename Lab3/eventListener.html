@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Praca z elementami DOM z wykorzystaniem JavaScript">
+    <meta name="author" content="Dominik Makuch">
+    <title>Dominik Makuch 22662</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for my website -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <header class="masthead mb-auto">
+        <div class="inner text-center">
+          <h3 class>Obsługa 10 wybranych zdarzeń z wykorzystaniem addEventListener</h3>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <div id="przyklad1">
+            <p class="lead">Przykład 1 - Wciśnij dowolny klawisz na klawiaturze:</p>
+        </div>
+        <div id="przyklad2">
+          <p class="lead">Przykład 2 - Naciśnij dwa razy gdziekolwiek na stronie:</p>
+        </div>
+        <div id="przyklad3">
+          <p class="lead">Przykład 3 - Najedź na pole poniżej!</p>
+          <div class="przyklady" id="showYourself">
+              <p style="color: rgba(100, 100, 100, 0);" id="widzisz" >Widzisz mnie?!</p>
+          </div>
+        </div>
+        <div id="przyklad4">
+          <p class="lead">Przykład 4 - Przytrzymaj lewy przycisk myszy na poniższym polu:</p>
+          <div class="przyklady2" id="colorBox">
+          </div>
+        </div>
+        <div id="przyklad5">
+          <p class="lead">Przykład 5 - Zmień rozmiar okna:</p>
+          <p id="windowSize">Wymiary okna: </br> Wysokość:<span id="height"></span> </br>Szerokość:<span id="width"></span> </p>
+        </div>
+        <div id="przyklad6">
+          <p class="lead">Przykład 6 - Skopiuj poniższy teskt:</p>
+          <p id="skopiuj">Skopiuj mnie!</p>
+        </div>
+        <div id="przyklad7">
+          <p class="lead">Przykład 7 - Wpisz dowolny tekst</p>
+          <input type="text" placeholder="Wpisz coś!" id="wpisz">
+        </div>
+        <div id="przyklad8">
+          <p class="lead">Przykład 8 - Skroluj poniższe pole:</p>
+          <div class="przyklady2" style="overflow: scroll" id="scroll">
+            <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </p>
+          </div>
+        </div>
+        <div id="przyklad9">
+          <p class="lead">Przykład 9 - Wytnij poniższy teskt:</p>
+          <p id="wytnij">Wytnij mnie!</p>
+        </div>
+        <div id="przyklad10">
+          <p class="lead">Przykład 10 - kliknij raz w poniższe pole</p>
+          <div class="przyklady" id="klik">
+            
+          </div>
+        </div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Wykonał <span class = "madeby">Dominik Makuch.</span></p>
+        </div>
+      </footer>
+    </div>
+    <script src="js/app.js"></script>
+    <script src="js/js-events.js"></script>
+  </body>
+</html>

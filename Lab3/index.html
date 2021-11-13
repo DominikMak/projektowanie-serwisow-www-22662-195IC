@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Praca z elementami DOM z wykorzystaniem JavaScript">
+    <meta name="author" content="Dominik Makuch">
+    <title>Dominik Makuch 22662</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for my website -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body class="text-center" onload="getPromptTxt(), fixName()">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <header class="masthead mb-auto">
+        <div class="inner text-center">
+          <h3 class>Zadania z Javascript</h3>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <div id="zad1">
+            <p class="lead">Zadanie 1 (2-rozne/zadanie 1).</p>
+        </div>
+        <div id="zad2">
+            <p class="lead">Zadanie 2 (2-rozne/zadanie 4).</p>
+            <button class="btn btn-dark" onclick="generateID()" id="idButton">Generuj ID</button>
+        </div>
+        <div id="zad3">
+            <p class="lead">Zadanie 3 (2-rozne/zadanie 5).</p>
+            <input type = "number" placeholder = "podaj liczbę" id="liczba">
+            <button class="btn btn-dark" onclick="printNumbersRun()" id="liczbyButton">Wyświetl liczby</button>
+        </div>
+        <div id="zad4">
+            <p class="lead">Zadanie 4 (2-rozne/zadanie 14).</p>
+            <input type = "text" placeholder = "podaj tekst" id="tekst">
+            <button class="btn btn-dark" onclick="printCheckPalindrom()" id="palindromButton">Sprawdź czy to palindrom!</button>
+        </div>
+        <div id="zad5">
+            <p class="lead">Zadanie 5 (2-rozne/zadanie 2).</p>
+        </div>
+        <div id="zad6">
+            <p class="lead">Zadanie 6 (2-rozne/zadanie 6).</p>
+            <input type="text" placeholder = "podaj imię" id="imie">
+            <input type="text" placeholder = "podaj miesiąc" id="miesiac">
+            <button class="btn btn-dark" onclick="poryRoku()" id="poryButton">Sprawdź!</button>
+        </div>
+        <div id="zad7">
+            <p class="lead">Zadanie 7 (2-rozne/zadanie 12).</p>
+            <button class="btn btn-dark" onclick="countWomanInTable()" id="countWomanButton">Sprawdź!</button>
+        </div>
+        <div id="zad8">
+            <p class="lead">Zadanie 8 (2-rozne/zadanie 13).</p>
+            <input type="number" placeholder="Podaj numer miesiąca:" id="numerMiesiaca">
+            <button class='btn btn-dark' onclick="monthName()" id="monthButton">Sprawdź!</button>
+        </div>
+        <a href = "eventListener.html">Obsługa wybranych zdarzeń za pomocą addEventListener</a>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Wykonał <span class = "madeby">Dominik Makuch.</span></p>
+        </div>
+      </footer>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
