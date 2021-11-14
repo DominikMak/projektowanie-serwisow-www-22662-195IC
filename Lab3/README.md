@@ -27,4 +27,4 @@
 * W ósmym przykładzie podczas skrolowania pola kolor tła zmienia się na losowy,
 * W dziewiątym przykładzie po wycięciu tekstu zmienia on kolor na czerwony,
 * W dziesiątym przykłądzie po naciśnięciu lewym przyciskiem myszy na pole wyświetlany jest tekst.
-![7](zrzuty/index-7.PNG)
+![7](zrzuty/index-6.PNG)
