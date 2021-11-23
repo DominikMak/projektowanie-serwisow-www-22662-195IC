@@ -1,0 +1,39 @@
+#canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+}
+
+#main {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    width: 800px;
+    background-image: url('../assets/sprites/back-1.png');
+    background-size: cover;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+button {
+    margin:0 auto;
+    border: none;
+    display:block;
+    text-align: center;
+    background-color: #555555;
+    font-size: 16px;
+    font-family: 'Bebas neue';
+    border-radius: 8px;
+    color: white;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
