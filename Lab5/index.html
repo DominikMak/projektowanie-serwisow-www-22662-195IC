@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Aynchroniczny JavaScript</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body onload="showAnswers()" class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Lab 5 - "Asynchroniczny JavaScript"</h3>
+            </div>
+        </header>
+
+        <main class="px-3">
+            <ul class="custom-list list-group">
+                <li class="list-group-item">
+                    1. Funkcja zwrotna (callback): <br />
+                    Task 1: (wykorzystaj funkcję zwrotną do pobrania dwóch różnych wartości liczbowych (z różnych
+                    poziomów zagnieżdżenia) z ww. obiektu JSON i wykonaj wybrane działanie na tych liczbach,)<br />
+                    <label for="players">Wybierz gracza:</label>
+                    <select name="players" id='plList'
+                        onchange="showHowMuchExpLeft(roznica, listaZad1.value), runGuild()">
+                    </select>
+                    <ul id="expLeft">
+                    </ul><br />
+                    Task 2: (wykorzystaj funkcję zwrotną do pobrania dwóch różnych łańcuchów znakowych (z różnych
+                    poziomów zagnieżdżenia) z ww. obiektu JSON i za pomocą template strings stwórz łańcuch znakowy z
+                    użyciem obu wcześniej wyekstrahowanych łańcuchów znakowych.)
+                    <ul id="guildUser">
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    2. Obiekt Promise (resolve, reject) z metodami then(), catch() i finally() + axios (lub fetch).
+                    <br />
+                    Task 1: wykorzystaj obiekt Promise do pobrania dwóch różnych zasobów liczbowych i napisz funkcję
+                    wykonującą wybrane działanie na tych liczbach. <br />
+                    <ul id='commentData'>
+                    </ul><br />
+                    <p id='wynikZad2' class='returnData'></p><br />
+                    Task 2: wykorzystaj obiekt Promise do pobrania dwóch różnych dowolnych zasobów i napisz funkcję
+                    tworzącą z nich nowy obiekt,
+                    - należy pamiętać o obsłudze wszystkich pięciu metod obiektu Promise,
+                    - do pobierania zasobów należy wykorzystać metodę fetch lub bibliotekę axios.
+                    <br />
+                    <p id='wynikZad2-2' class='returnData'></p>
+                </li>
+                <li class="list-group-item">3. async/await + fetch (lub axios):
+                    <br />Task 1:<br />
+                    <p id='wynikZad3T1' class='returnData'></p></br>
+                    Task 2:<br />
+                    <p id='wynikZad3T2' class='returnData'></p>
+                </li>
+                <li class="list-group-item">
+                    4. Zapytania AJAX:<br />
+                    Task 1:<br />
+                    <p id='wynikZad4T1' class='returnData'></p><br />
+                    Task 2:<br />
+                    <p id='wynikZad4T2' class='returnData'></p>
+                </li>
+                <li class="list-group-item">
+                    5. Metoda fetch:<br />
+                    Task1: <br />
+                    <p id='wynikZad5T1' class='returnData'></p><br />
+                    Task2: <br />
+                    <p id='wynikZad5T2' class='returnData'></p><br />
+                </li>
+                <li class='list-group-item'>
+                    6. Biblioteka axios:
+                    Task1: <br />
+                    <p id='wynikZad6T1' class='returnData'></p><br />
+                    Task2: <br />
+                    <p id='wynikZad6T2' class='returnData'></p><br />
+                </li>
+            </ul>
+        </main>
+
+        <footer class="mt-auto text-white-50">
+            <p>Dominik Makuch 22662</p>
+        </footer>
+    </div>
+    <script src="js/json.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
