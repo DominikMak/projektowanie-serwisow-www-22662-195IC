@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vue.js</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cover.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
+  </head>
+
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3>Vue.js</h3>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Vue - aplikacja nr 1</h1>
+  </main>
+  <div class="text-left">
+    <ol>
+        <li>
+            Dyrektywa v-if:
+            <div id="app0">
+                <p v-if="isVisible">
+                  Widzisz mnie?!
+                </p>
+                <button class='btn btn-dark' @click="toggle">
+                  Ukryj napis.
+                </button>
+              </div>
+        </li>
+        <li>
+            Dyrektywa v-on:
+            <div id="app2">
+                <p v-if="isVisible">A mnie widzisz?!</p>
+                <button class='btn btn-dark' v-on:click="isVisible = !isVisible">
+                  Ukryj napis.
+                </button>
+              </div>
+        </li>
+        <li>
+            Dyrektywa v-for:
+            <div id="app3">
+                <p v-for="person in people">
+                    {{ person.name }} otrzymał ocenę {{ person.grade }}.
+                </p>
+            </div>
+        </li>
+        <li>
+            Dyrektywa v-bind:
+            <div id="app4">
+                <p v-bind:class="className">Projektowanie serwisów www ♥</p>
+                <button class='btn btn-dark' @click="toggle">Zmień kolor</button>
+            </div>
+        </li>
+        <li>
+            Dyrektywa v-model:
+            <div id="app5">
+                <input type="text" v-model="inputValue" name="exampleInput">
+                <p>{{ inputValue }}</p>
+            </div>
+        </li>
+        <li>
+            Wykorzystanie właściwości 'computed':
+            <div id="app6">
+                <p>{{ message }}</p>
+                <p>{{ capitalize() }}</p>
+                <p>{{ reversedMessage }}</p>
+            </div>
+        </li>
+        <li>
+            Obsługa zdarzeń:
+            <div id="app7">
+                <div>
+                  <example @execute="onExecute"></example>
+                </div>
+              </div>
+        </li>
+        <li>
+            Wykorzystanie komponentów:
+            <div id="components">
+                <button-counter></button-counter>
+            </div>
+        </li>
+        <li>
+            Vuex:
+            <div id="app8">
+                <p>{{ count }}</p>
+                <p>
+                  <button class="btn btn-dark" @click="increment">+</button>
+                  <button class="btn btn-dark" @click="decrement">-</button>
+                </p>
+              </div>
+
+            <script>
+                const store = new Vuex.Store({
+                    state: {
+                      count: 0
+                    },
+                    mutations: {
+                        increment: state => state.count++,
+                      decrement: state => state.count--
+                    }
+                  })
+                  
+                  new Vue({
+                    el: '#app8',
+                    computed: {
+                      count () {
+                          return store.state.count
+                      }
+                    },
+                    methods: {
+                      increment () {
+                        store.commit('increment')
+                      },
+                      decrement () {
+                          store.commit('decrement')
+                      }
+                    }
+                  })
+            </script>
+        </li>
+        <li>
+          Single File Components / props:
+          <div id="app"></div>
+        </li>
+    </ol>
+    
+
+      <script>
+        const app = new Vue({
+            el: '#app0',
+            data: {
+                isVisible: true,
+            },
+            methods: {
+                toggle () {
+                this.isVisible = !this.isVisible
+                }
+            },
+        });
+        const app2 = new Vue({
+            el: '#app2',
+            data: {
+                isVisible: true,
+            },
+            methods: {
+                toggle () {
+                this.isVisible = !this.isVisible
+                }
+            },
+        });
+
+        const app3 = new Vue({
+            el: '#app3',
+            data: {
+                people: [
+                { name: 'Dominik', grade: 6 },
+                { name: 'Marcin', grade: 3 },
+                { name: 'Alex', grade: 4 },
+                ]
+            },
+        });
+        const app4 = new Vue({
+            el: '#app4',
+            data: {
+                className: 'red',
+            },
+            methods: {
+                toggle () {
+                this.className = this.className == 'red' 
+                    ? 'blue' 
+                    : 'red'
+                }
+            }
+        });
+        const app5 = new Vue({
+            el: '#app5',
+            data: {
+                inputValue: ''
+            }
+        });
+        const app6 = new Vue({
+            el: '#app6',
+            data: {
+                message: 'Dominik Makuch',
+            },
+            methods: {
+                capitalize () {
+                return this.message.toUpperCase()
+                }
+            },
+            computed: {
+                reversedMessage () {
+                return this.message.split('').reverse().join('')
+                }
+            }
+        });
+        Vue.component('example', {
+            template: `
+                <button class="btn btn-dark" @click="execute">
+                Obsługa Zdarzeń!
+                </button>
+            `,
+            methods: {
+                execute () {
+                this.$emit('execute')
+                }
+            }
+         });
+        const app7 = new Vue({
+            el: '#app7',
+            methods: {
+                onExecute () {
+                alert('Obsłużono!!')
+                }
+            }
+        });
+        Vue.component('button-counter', {
+            data: function () {
+                return {
+                count: 0
+                }
+            },
+            template: '<button class="btn btn-dark" v-on:click="count++">Nacisnałeś na mnie {{ count }} razy.</button>'
+        });
+        new Vue({ el: '#components' })
+      </script>
+  </div>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p>Dominik Makuch 22662</p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
