@@ -2,7 +2,7 @@
 Stworzyłem SPA w Vue.js wykorzystując vuetify oraz vuerouter. Składa się ona z 3 "podstron" zawierających różne komponenty vuetify.
 ### 1. Wszystkie 'podstrony' zawierają app-bar utworzony w osobnym pliku 'AppNavigation.vue'.
 
-![1](/Lab7/src/assets/1.PNG)
+![1](src/assets/1.PNG)
 ![2](Lab7/src/assets/2.PNG)
 
 Do stworzenia 'menu' strony wykorzystałem 'v-navigation-drawer' w celu stworzenia hamburger menu wyświetlającego się w przypadku zmiany wielkości okna.
