@@ -1,26 +1,46 @@
 <template>
-  <div class="stack-small" v-if="!isEditing">
-    <div class="custom-checkbox">
-      <input
-        type="checkbox"
-        class="checkbox"
-        :id="id"
-        :checked="isDone"
-        @change="$emit('checkbox-changed')"
-      />
-      <label :for="id" class="checkbox-label">{{label}}</label>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn" ref="editButton" @click="toggleToItemEditForm">
-        Edit
-        <span class="visually-hidden">{{label}}</span>
-      </button>
-      <button type="button" class="btn btn__danger" @click="deleteToDo">
-        Delete
-        <span class="visually-hidden">{{label}}</span>
-      </button>
-    </div>
-  </div>
+  <!-- zawieranie nowych zadań w komponencie v-card w celu oddzielenia zadań od siebie i możliwości zmiany koloru ukończonej karty -->
+  <v-card class="mx-auto" v-if="!isEditing" v-bind:class="{ done: isDone }">
+  <!--------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- tytuł karty to checkbox zawierający label o nazwie zadania -->
+    <v-card-title> 
+      <v-checkbox
+              :label="label"
+              color="green"
+              value="success"
+              hide-details
+              :id ="id"
+              :checked="isDone"
+              @change="$emit('checkbox-changed')"
+      ></v-checkbox>
+    </v-card-title>
+    <!-------------------------------------------------------------->
+
+    <!-- Sekajca v-card-actions zawiera przyciski w formie ikon -->
+    <v-card-actions>
+      <v-spacer></v-spacer>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on, attrs }">
+          <!-- przycisk edycji zadania -->
+          <v-btn icon @click="toggleToItemEditForm" v-bind="attrs" v-on="on">
+            <v-icon>mdi-pencil</v-icon>
+          </v-btn>
+          <!----------------------------->
+        </template>
+        <span>Edit</span>
+      </v-tooltip>
+    
+      <!-- przycisk usuwania zadania -->
+      <v-btn icon @click="deleteToDo">
+        <v-icon>mdi-delete</v-icon>
+      </v-btn>
+      <!------------------------------->
+    </v-card-actions>
+  </v-card>
+
+  <!-- wywołanie komponentu edycji zadania w przypadku wybrania przycisku edycji -->
   <to-do-item-edit-form
     v-else
     :id="id"
@@ -28,47 +48,67 @@
     @item-edited="itemEdited"
     @edit-cancelled="editCancelled"
   ></to-do-item-edit-form>
+  <!------------------------------------------------------------------------------->
 </template>
 
 <script>
+// importowanie komponentu do edycji zadania
 import ToDoItemEditForm from "./ToDoItemEditForm";
+// -----------------------------------------
 
 export default {
+  // definiowanie komponentu do edycji zadania
   components: {
     ToDoItemEditForm
   },
+  // -----------------------------------------
+
+  // definiowanie właściwości dla zadania
   props: {
+    // nazwa zadania
     label: { required: true, type: String },
+    // sprawdzenie czy zadanie jest ukończone
     done: { default: false, type: Boolean },
+    // id zadania
     id: { required: true, type: String }
   },
   data() {
     return {
+      // zmienna sprawdzająca czy zadanie jest obecnie edytowane
       isEditing: false
     };
   },
   computed: {
+    // definiowanie funkcji isDone() zwracajacej zmienną done
     isDone() {
       return this.done;
     }
   },
   methods: {
+    // funkcja usuwająca zadanie 
     deleteToDo() {
       this.$emit("item-deleted");
     },
+
+    // zmienianie właściowości zadania na edytowane
     toggleToItemEditForm() {
       console.log(this.$refs.editButton);
       this.isEditing = true;
     },
+
+    // zwracanie edytowanego zadania
     itemEdited(newLabel) {
       this.$emit("item-edited", newLabel);
       this.isEditing = false;
       this.focusOnEditButton();
     },
+
+    // anulowanie edycji zadania
     editCancelled() {
       this.isEditing = false;
       this.focusOnEditButton();
     },
+
     focusOnEditButton() {
       this.$nextTick(() => {
         const editButtonRef = this.$refs.editButton;

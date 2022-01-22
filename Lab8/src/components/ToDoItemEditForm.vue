@@ -1,28 +1,40 @@
 <template>
-  <form class="stack-small" @submit.prevent="onSubmit">
-    <div>
-      <label class="edit-label">Edit Name for &quot;{{label}}&quot;</label>
-      <input :id="id" ref="labelInput" type="text" autocomplete="off" v-model.lazy.trim="newLabel" />
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn" @click="onCancel">
-        Cancel
-        <span class="visually-hidden">editing {{label}}</span>
-      </button>
-      <button type="submit" class="btn btn__primary">
-        Save
-        <span class="visually-hidden">edit for {{label}}</span>
-      </button>
-    </div>
-  </form>
+  <!-- zawarcie edycji zadania w formie karty w celu uzyskania spójności z widokiem wyświetlania zadania -->
+  <v-card class="mx-auto">
+    <!-- formularz do edycji zadania -->
+    <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="onSubmit">
+
+    <!-- w sekcji tytułowej karty zawarty jest input do zmiany nazwy zawierający jako default value obecną nazwę -->
+    <v-card-title>
+        <v-text-field :id="id" v-model.lazy.trim="newLabel" :label="label" required></v-text-field>
+
+        <!-- wyświetlanie alertu w przypadku nie podania nowej nazwy zadania bądź podania tej samej nazwy co stara -->
+        <v-alert dense dismissible type="warning" v-if="show_alert"> You need to provide new To-do element name </v-alert>
+    </v-card-title>
+
+    <v-card-actions>
+        <v-spacer></v-spacer>
+        <!-- utowrzenie przycisku do anulowania edycji -->
+        <v-btn icon @click="onCancel">
+              <v-icon>mdi-cancel</v-icon>
+        </v-btn>
+        <!-- utworzenie przycisku do zapisania zmian -->
+        <v-btn icon type="submit">
+              <v-icon>mdi-content-save-check</v-icon>
+        </v-btn>
+    </v-card-actions>
+    </v-form>
+  </v-card>
 </template>
 <script>
 export default {
   props: {
+    // deifniowanie nazwy zadania
     label: {
       type: String,
       required: true
     },
+    // definiowanie id zadania
     id: {
       type: String,
       required: true
@@ -30,15 +42,23 @@ export default {
   },
   data() {
     return {
-      newLabel: this.label
+      // zmienna dla nowej nazwy
+      newLabel: this.label,
+      // zmienna wyświetlająca alert
+      show_alert: false
     };
   },
   methods: {
+    // funkcja dodająca zmiany 
     onSubmit() {
       if (this.newLabel && this.newLabel !== this.label) {
         this.$emit("item-edited", this.newLabel);
       }
+      else{
+        this.show_alert = true;
+      }
     },
+    // funkcja anulująca zmiany
     onCancel() {
       this.$emit("edit-cancelled");
     },

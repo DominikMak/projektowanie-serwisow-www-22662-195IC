@@ -1,8 +1,18 @@
 <template>
+
+  <!-- kontener aplikacji Vue.js -->
   <div id="app">
   <h1>To-Do List</h1>
+
+  <!-- wywołanie customowego komponentu do dodawania nowych zadań -->
   <to-do-form @todo-added="addToDo"></to-do-form>
+  <!---------------------------------------------------------------->
+
+  <!-- wyświetlenie liczby ukończonych zadań -->
   <h2 id="list-summary" ref="listSummary" tabindex="-1">{{listSummary}}</h2>
+  <!------------------------------------------->
+
+  <!-- wyświetlenie listy zadań -->
   <ul aria-labelledby="list-summary" class="stack-large">
     <li v-for="item in ToDoItems" :key="item.id">
     <to-do-item :label="item.label" :done="item.done" :id="item.id"
@@ -12,53 +22,87 @@
     </to-do-item>
     </li>
   </ul>
+  <!------------------------------>
+
   </div>
 </template>
 
 <script>
+// importowanie utworzonych komponentów
+
+// importowanie komponentu do wyświetlania zadań
 import ToDoItem from './components/ToDoItem.vue';
+// ---------------------------------------------
+
+// importowanie komponentu do tworzenia nowego zadania
 import ToDoForm from './components/ToDoForm';
+// ---------------------------------------------------
+
 import uniqueId from 'lodash.uniqueid'
+//-----------------------------------------------
 
 export default {
   name: 'app',
+
+  // definiowanie komponentów
   components: {
     ToDoItem,
     ToDoForm
   },
+  // ------------------------
+
+
   data() {
     return {
+      // predefiniowane zadania wyświetlane przy rozpoczęciu aplikacji
       ToDoItems: [
         { id: uniqueId('todo-'), label: 'Learn Vue', done: false },
-        { id: uniqueId('todo-'), label: 'Create a Vue project with the CLI', done: true },
-        { id: uniqueId('todo-'), label: 'Have fun', done: true },
+        { id: uniqueId('todo-'), label: 'Create a Vue project with the CLI', done: false },
+        { id: uniqueId('todo-'), label: 'Have fun', done: false },
         { id: uniqueId('todo-'), label: 'Create a to-do list', done: false }
       ]
     };
+      // --------------------------------------------------------------
   },
   methods: {
+
+    // definiowanie metod
+
+    // dodawanie nowych zadań
     addToDo(toDoLabel) {
       this.ToDoItems.push({id:uniqueId('todo-'), label: toDoLabel, done: false});
     },
+    // ----------------------
+
+    // oznaczanie zadań jako ukończone
     updateDoneStatus(toDoId) {
       const toDoToUpdate = this.ToDoItems.find(item => item.id === toDoId);
       toDoToUpdate.done = !(toDoToUpdate.done)
     },
+    // -------------------------------
+
+    // usuwanie zadań z listy
     deleteToDo(toDoId) {
       const itemIndex = this.ToDoItems.findIndex(item => item.id === toDoId);
       this.ToDoItems.splice(itemIndex, 1);
       this.$refs.listSummary.focus();
     },
+    // ----------------------
+
+    // edytowanie istniejących zadań
     editToDo(toDoId, newLabel) {
       const toDoToEdit = this.ToDoItems.find(item => item.id === toDoId);
       toDoToEdit.label = newLabel;
     }
+    // -----------------------------
   },
   computed: {
+    // wyświetlanie liczby ukończonych zadań
     listSummary() {
       const numberFinishedItems = this.ToDoItems.filter(item =>item.done).length
       return `${numberFinishedItems} out of ${this.ToDoItems.length} items completed`
     }
+    // -------------------------------------
   }
 };
 </script>

@@ -71,4 +71,28 @@ body {
     line-height: 1.31579;
   }
 }
+
+.v-text-field input {
+  flex: 1 1 auto;
+  line-height: 20px;
+  padding: 35px 0 8px;
+  max-width: 100%;
+  min-width: 0px;
+  width: 100%;
+}
+.v-input .v-label {
+  height: 45px;
+  line-height: 40px;
+  letter-spacing: normal;
+}
+
+.theme--dark.v-sheet {
+  background-color: orange;
+  border-color: orange;
+  color: #FFFFFF;
+}
+
+.done {
+  background-color: #e7e7e7 !important;
+}
 /*END RESETS*/
